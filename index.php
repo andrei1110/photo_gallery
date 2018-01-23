@@ -7,16 +7,21 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="path/dropzone/dropzone.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="path/dropzone/dropzone.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/script.js"></script>
+
 </head>
 
 
 <body>
 
-<div class="container">
+
 <?php
 
 	if(!isset ($_SESSION['login']['active']) || $_SESSION['login']['active'] != 1){
@@ -28,7 +33,7 @@
 	}
 ?>
 
-</div>
+
 <center>
 	<p class="mt-5 mb-3 text-muted">Criado por Andrei Toledo. Todos os direitos reservados. &copy; 2018</p>
 </center>

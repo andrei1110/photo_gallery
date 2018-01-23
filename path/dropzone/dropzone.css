@@ -172,6 +172,7 @@
 .dropzone {
   min-height: 80px;
   border: 2px dotted #007bff;
+  border-radius: 35px;
   background: white;
   padding: 54px 54px; }
   .dropzone.dz-clickable {
