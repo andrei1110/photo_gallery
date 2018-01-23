@@ -4,7 +4,6 @@
 	session_start();
 	require_once("conn.php");
 
-	//$_POST['email'] = 'admin@admin.com'; $_POST['password'] = 'admin'; //test
 
 	if(isset ($_POST['in-email']) && isset ($_POST['in-password'])){
 		$email = $_POST['in-email'];
@@ -32,6 +31,6 @@
 	else{
 		$_SESSION['login']['failed'] = 1;
 	}
-		// var_dump($_SESSION['login']); //test
+
 	Header("Location:../../index.php");
 ?>

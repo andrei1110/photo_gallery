@@ -43,6 +43,13 @@
 
 	$prep->execute();
 
+	$newId = $conn->lastInsertId();
+
+	//cria os diretórios para os arquivos do novo usuário
+	mkdir("../../uploads/".$newId."");
+	mkdir("../../uploads/".$newId."/images");
+	mkdir("../../uploads/".$newId."/docs");
+
 	$_POST['in-email'] = $email;
 	$_POST['in-password'] = $password;
 
