@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	require_once("conn.php");
+	require_once("defines.php");
+	include BASE_DIR . 'src' . DS . 'model'. DS . 'conn.php';
 
 	//define o tipo de arquivo
 	if(isset($image) && $image == 1) $type = "image";

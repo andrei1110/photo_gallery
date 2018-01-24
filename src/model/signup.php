@@ -3,7 +3,9 @@
 	session_destroy();
 	session_start();
 
-	require_once("../model/conn.php");
+	require_once("../control/defines.php");
+	
+	include BASE_DIR . 'src' . DS . 'model'. DS . 'conn.php';
 
 	if(!isset($_POST['up-name']) || !isset($_POST['up-email']) || !isset($_POST['up-password'])){
 		header("Location: ../../index.php?suError=miss");

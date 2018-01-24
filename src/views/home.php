@@ -27,42 +27,19 @@
 </nav>
 
 !<!-- Home container -->
-<div class="container-fluid container-home">
-	<div class="row">
-		<!-- Sidebar -->
-		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
-			<div class="sidebar-sticky">
-				<ul class="nav flex-column">
-					<li class="nav-item">
-					<a class="nav-link active" href="#">
-					<span data-feather="home"></span>
-					Home
-					</a>
-					</li>
-					<li class="nav-item">
-					<a class="nav-link" href="#">
-					<span data-feather="file"></span>
-					Configurações
-					</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+<center>
+	<div class="container-home">
+		
 
 		<!-- Main container -->
-		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-			<center>
+		<main role="main" class="col-sm-12 col-md-12 col-xs-12">
+			
+			<!-- UPLOAD Form -->
+			<?php include("src/views/upload.php"); ?>
 
-				<form action="src/control/upload.php" class="dropzone needsclick dz-clickable col-md-9 col-xs-9 col-sm-9" id="file-upload" method="POST" enctype="multipart/form-data">
-				<div class="dz-message needsclick">
-					<i class="fa fa-upload fa-3x" aria-hidden="true"></i><br/>
-					<br/>
-					Clique ou arraste algum arquivo aqui.<br/>
-					<span class="note needsclick">(São aceitos apenas arquivos de imagens e pdf.)</span>
-				</div>
-				</form>
+			<?php include("src/views/gallery.php"); ?>
 
-			</center>
 		</main>
+
 	</div>
-</div>
+</center>

@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php 
+
+session_start(); 
+include("src/control/defines.php");
+
+?>
 <html lnag="pt-br">
 
 <head>

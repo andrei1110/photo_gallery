@@ -1,4 +1,6 @@
 <?php
+	include("defines.php");
+	
 	session_start();
 
 	if(isset($_FILES['file'])) $file = $_FILES['file'];
@@ -44,14 +46,16 @@
         	$file_name = md5(uniqid(time())) . "." . $ext[1];
  
         	//caminho de onde ficará o arquivo
-        	if(isset($image) && $image == 1) $file_path = "../../uploads/".$_SESSION['login']['user']['id']."/images/";
-        	if(isset($doc) && $doc == 1) $file_path = "../../uploads/".$_SESSION['login']['user']['id']."/docs/";
+        	$pre = "../../";
+        	if(isset($image) && $image == 1) $file_path = "uploads/".$_SESSION['login']['user']['id']."/images/";
+        	if(isset($doc) && $doc == 1) $file_path = "uploads/".$_SESSION['login']['user']['id']."/docs/";
  
 			//faz o upload da imagem para seu respectivo caminho
-			move_uploaded_file($file["tmp_name"], $file_path.$file_name);
+			move_uploaded_file($file["tmp_name"], $pre.$file_path.$file_name);
 
 			//adiciona imagem ao banco de dados
-			require_once("../model/upload.php");
+			include BASE_DIR . 'src' . DS . 'model'. DS . 'upload.php';
+			//require_once("../model/upload.php");
 		}
 	}
 ?>
