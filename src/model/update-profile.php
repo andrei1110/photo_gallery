@@ -20,4 +20,8 @@
 
 	$_SESSION['login']['user']['name'] = $name;
 	$_SESSION['login']['user']['email'] = $email;
+
+	echo '<div class="alert alert-info" role="alert">';
+		echo 'Perfil atualizado com sucesso.<br/><a href="index.php">Clique aqui</a> para atualizar a página.</a>';
+	echo '</div>';
 ?>
