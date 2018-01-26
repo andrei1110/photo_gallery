@@ -23,7 +23,6 @@
 	$res = $conn->query($sql);
 
 	if($res->rowCount() > 0){
-		echo 'entrou';
 		header("Location:../../index.php?suError=email");
 	}
 

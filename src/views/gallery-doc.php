@@ -55,13 +55,33 @@
 						echo '<embed src="'.$modal[$i]->local.$modal[$i]->name.'" width="760" height="500" type="application/pdf">';
 					echo '</div>';
 					echo '<div class="modal-footer">';
-						echo 'Tamanho do arquivo: '.$modal[$i]->size. ' mb.';
+						echo 'Tamanho do arquivo: '.$modal[$i]->size. ' mb. <br/>';
+						echo '<a href="#modal-doc-del-'.$modal[$i]->id.'" data-toggle="modal">Excluir</a> ';
+						echo '<a download="'.$modal[$i]->name.'" href="'.$modal[$i]->local.'/'.$modal[$i]->name.'" title="'.$modal[$i]->name.'">Download</a> ';
 					echo '</div>';
 				echo '</div>';
 			echo '</div>';
 		echo '</div>';
 
-
+		echo '<div class="modal fade" id="modal-doc-del-'.$modal[$i]->id.'" tabindex="-1" role="dialog" aria-labelledby="modalDelForDoc'.$modal[$i]->id.'" aria-hidden="true">';
+			echo '<div class="modal-dialog modal-lg" role="image">';
+				echo '<div class="modal-content">';
+					echo '<div class="modal-header">';
+						echo '<h5 class="modal-title" id="exampleModalLabel">Excluir arquivo '.$modal[$i]->name.'</h5>';
+						echo '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
+						echo '<span aria-hidden="true">&times;</span>';
+						echo '</button>';
+					echo '</div>';
+					echo '<div class="modal-body">';
+						echo 'Tem certeza que deseja excluir o arquivo '.$modal[$i]->name.'?';
+					echo '</div>';
+					echo '<div class="modal-footer">';
+						echo '<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>';
+						echo '<a href="src/model/delete.php?file_id='.$modal[$i]->id.'" class="btn btn-danger">Excluir</a>';
+					echo '</div>';
+				echo '</div>';
+			echo '</div>';
+		echo '</div>';
 	}
 
 ?>
