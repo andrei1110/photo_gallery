@@ -8,13 +8,12 @@
 	require_once("src/model/gallery-all.php");
 
 	echo '<div class="card-deck" style="padding-left: 50px;">';
-		echo '<div class="row">';
 
 		while($result = $files->fetch(PDO::FETCH_OBJ)){
 
 			$modal[$count] = $result;
 
-			echo '<div class = "card col-sm-4 col-md-2 col-xs-2 col-lg-2">';
+			echo '<div class = "card" style="max-width:240px;">';
 
 				if($result->type == 'image') echo '<a href="#modal-all-'.$result->id.'" data-toggle="modal"><img src="'.$result->local.$result->name.'" alt="" style="max-height: 150px;" class="card-img-top"></a>';
 
@@ -31,12 +30,11 @@
 
 			echo '</div> &nbsp;&nbsp;&nbsp;';
 			if($count%5 == 0){
-				echo '</div> <br/> <div class="row">';
+				echo '</div> <br/> <div class="card-deck" style="padding-left: 50px;">';
 			}
 			$count++;
 		}
 
-		echo '</div>';
 	echo '</div>';
 ?>
 
@@ -58,12 +56,14 @@
 						if($modal[$i]->type == 'doc') echo '<embed src="'.$modal[$i]->local.$modal[$i]->name.'" style="width:100%; min-height: 500px" type="application/pdf">';
 						//verifica se é imagem
 						if($modal[$i]->type == 'image') echo '<img src="'.$modal[$i]->local.$modal[$i]->name.'" alt="" style="max-width: 100%;">';
+						echo '<center>';
+							//verifica se é pdf
+							if($modal[$i]->type == 'doc') echo 'Tamanho do arquivo: '.number_format($modal[$i]->size,2). ' mb.';
+							//verifica se é imagem
+							if($modal[$i]->type == 'image') echo 'Dimensões da imagem: '.$modal[$i]->img_h.' x '.$modal[$i]->img_w.'<br/> Tamanho da imagem: '.$modal[$i]->size. ' mb.';
+							echo '</center>';
 					echo '</div>';
 					echo '<div class="modal-footer">';
-						//verifica se é pdf
-						if($modal[$i]->type == 'doc') echo 'Tamanho do arquivo: '.$modal[$i]->size. ' mb.';
-						//verifica se é imagem
-						if($modal[$i]->type == 'image') echo 'Dimensões da imagem: '.$modal[$i]->img_h.' x '.$modal[$i]->img_w.'<br/> Tamanho da imagem: '.$modal[$i]->size. ' mb.';
 						echo '<a href="#modal-file-del-'.$modal[$i]->id.'" data-toggle="modal">Excluir</a> ';
 						echo '<a download="'.$modal[$i]->name.'" href="'.$modal[$i]->local.'/'.$modal[$i]->name.'" title="'.$modal[$i]->name.'">Download</a> ';
 					echo '</div>';

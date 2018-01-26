@@ -8,13 +8,12 @@
 	require_once("src/model/gallery-image.php");
 
 	echo '<div class="card-deck" style="padding-left: 50px;">';
-		echo '<div class="row">';
 
 		while($result = $files->fetch(PDO::FETCH_OBJ)){
 
 			$modal[$count] = $result;
 
-			echo '<div class = "card col-sm-2 col-md-2 col-xs-2 col-lg-2">';
+			echo '<div class = "card" style="max-width:240px;">';
 
 				echo '<a href="#modal-image-'.$result->id.'" data-toggle="modal"><img src="'.$result->local.$result->name.'" alt="" style="max-height: 150px;" class="card-img-top"></a>';
 
@@ -29,12 +28,11 @@
 
 			echo '</div> &nbsp;&nbsp;&nbsp;';
 			if($count%5 == 0){
-				echo '</div> <br/> <div class="row">';
+				echo '</div> <br/> <div class="card-deck" style="padding-left: 50px;">';
 			}
 			$count++;
 		}
 
-		echo '</div>';
 	echo '</div>';
 ?>
 
@@ -53,9 +51,11 @@
 					echo '</div>';
 					echo '<div class="modal-body">';
 						echo '<img src="'.$modal[$i]->local.$modal[$i]->name.'" alt="" style="max-width: 100%;">';
+						echo '<center>';
+							echo 'Dimensões da imagem: '.$modal[$i]->img_h.' x '.$modal[$i]->img_w.'<br/> Tamanho da imagem: '.number_format($modal[$i]->size,2). ' mb.<br/> ';
+						echo '</center>';
 					echo '</div>';
 					echo '<div class="modal-footer">';
-						echo 'Dimensões da imagem: '.$modal[$i]->img_h.' x '.$modal[$i]->img_w.'<br/> Tamanho da imagem: '.$modal[$i]->size. ' mb.<br/> ';
 						echo '<a href="#modal-image-del-'.$modal[$i]->id.'" data-toggle="modal">Excluir</a>';
 						echo '<a download="'.$modal[$i]->name.'" href="'.$modal[$i]->local.'/'.$modal[$i]->name.'" title="'.$modal[$i]->name.'">Download</a> ';
 					echo '</div>';

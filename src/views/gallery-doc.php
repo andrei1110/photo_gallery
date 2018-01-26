@@ -8,13 +8,12 @@
 	require_once("src/model/gallery-doc.php");
 
 	echo '<div class="card-deck" style="padding-left: 50px;">';
-		echo '<div class="row">';
 
 		while($result = $files->fetch(PDO::FETCH_OBJ)){
 
 			$modal[$count] = $result;
 
-			echo '<div class = "card col-sm-2 col-md-2 col-xs-2 col-lg-2">';
+			echo '<div class = "card" style="max-width:240px;">';
 
 				echo '<a href="#modal-doc-'.$result->id.'" data-toggle="modal"><img src="images/pdf.png" alt="'.$result->name.'" style="max-height: 150px;" class="img-thumbnail"></a>';
 
@@ -29,12 +28,10 @@
 
 			echo '</div> &nbsp;&nbsp;&nbsp;';
 			if($count%5 == 0){
-				echo '</div> <br/> <div class="row">';
+				echo '</div> <br/> <div class="card-deck" style="padding-left: 50px;">';
 			}
 			$count++;
 		}
-
-		echo '</div>';
 	echo '</div>';
 ?>
 
@@ -53,9 +50,11 @@
 					echo '</div>';
 					echo '<div class="modal-body">';
 						echo '<embed src="'.$modal[$i]->local.$modal[$i]->name.'" width="760" height="500" type="application/pdf">';
+						echo '<center>';
+							echo 'Tamanho do arquivo: '.number_format($modal[$i]->size,2). ' mb. <br/>';
+						echo '</center>';
 					echo '</div>';
 					echo '<div class="modal-footer">';
-						echo 'Tamanho do arquivo: '.$modal[$i]->size. ' mb. <br/>';
 						echo '<a href="#modal-doc-del-'.$modal[$i]->id.'" data-toggle="modal">Excluir</a> ';
 						echo '<a download="'.$modal[$i]->name.'" href="'.$modal[$i]->local.'/'.$modal[$i]->name.'" title="'.$modal[$i]->name.'">Download</a> ';
 					echo '</div>';

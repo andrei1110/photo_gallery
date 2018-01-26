@@ -4,3 +4,12 @@
 .container-home{
 	padding-top: 55px;
 }
+
+.card-columns {
+
+	@include media-breakpoint-up(xs) { column-count: 1; }
+	@include media-breakpoint-up(sm) { column-count: 2; }
+	@include media-breakpoint-up(md) { column-count: 5; }
+	@include media-breakpoint-up(lg) { column-count: 5; }
+	@include media-breakpoint-up(xl) { column-count: 7; }
+}

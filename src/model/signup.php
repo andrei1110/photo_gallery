@@ -1,7 +1,7 @@
 <?php
-	session_start();
+	if(!isset($_SESSION['login']['user']['id'])) session_start();
 	session_destroy();
-	session_start();
+	if(!isset($_SESSION['login']['user']['id'])) session_start();
 
 	require_once("../control/defines.php");
 	
